@@ -1,5 +1,3 @@
 test
 
-before ignore
-
-after ignore
+ignore 1st
