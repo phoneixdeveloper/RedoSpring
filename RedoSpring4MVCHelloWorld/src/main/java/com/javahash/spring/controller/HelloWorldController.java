@@ -8,8 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.javahash.spring.Model.Contact;
 
+
+
 @Controller
-public class HelloWorldController {
+public class HelloWorldController extends BaseController {
 
 	@RequestMapping("/hello.do")
 	public ModelAndView hello(
@@ -17,6 +19,15 @@ public class HelloWorldController {
 			Model model) {
 		model.addAttribute("name", name);
 		model.addAttribute("world", "world");
+		
+//		float f = 8 / 0;
+		
+		try {
+			float f = 8 / 0;
+		} catch (Exception e) {
+			LOGGER.error("Devide by zero !!!");
+		} 
+		
 		return new ModelAndView("helloworld", "command", new Contact());
 	}
 }
