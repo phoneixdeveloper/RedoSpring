@@ -12,7 +12,7 @@ import com.javahash.spring.Model.Contact;
 
 @Controller
 @SessionAttributes
-public class ContactController {
+public class ContactController extends BaseController {
 
 	@RequestMapping(value = "/addContact", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("contact")
@@ -21,7 +21,6 @@ public class ContactController {
 		System.out.println("First Name:" + contact.getFirstname() + 
 					"Last Name:" + contact.getLastname());
 		
-		
 		return "redirect:contacts.html";
 	}
 	
@@ -29,6 +28,9 @@ public class ContactController {
 	public ModelAndView showContacts() {
 		
 		System.out.println("Here is show Contacts method");
+		
+		float f = 8/0;
+		
 		return new ModelAndView("contactABC", "command", new Contact());
 	}
 }
